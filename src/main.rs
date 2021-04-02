@@ -57,7 +57,7 @@ fn handle_stream(mut stream: TcpStream) {
         },
     };
     
-    if let Ok(_) = corund_res {
+    if let Err(_) = corund_res {
         println!("Error: {:?}", response_method);
     } else {
         println!("Sucess request to method: {:?}", response_method);
