@@ -72,7 +72,7 @@ fn handle_post(request_post: &str) -> Result<Method, Box<dyn Error>> {
 }
 
 fn handle_get(mut stream: &TcpStream) -> Result<Method, Box<dyn Error>> {
-	let file_path = "index.html".to_string();
+	let file_path = "resources/index.html".to_string();
 	let content = fs::read_to_string(file_path.clone()).
         expect(&format!("Error: no such file or directory: {}", file_path));
 
