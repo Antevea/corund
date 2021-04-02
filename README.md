@@ -1,11 +1,14 @@
 # Experiments with rust std::net
 
+Try to make web-server
+
 # Usage
 
-Try to make web-server
+Move your resource files into ./resource folder
 
 ## Build and run
 ```console
 cargo build --release
+mkdir resources
 ./target/release/corund
 ```
