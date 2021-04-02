@@ -81,6 +81,7 @@ fn handle_get(mut stream: &TcpStream) -> Result<Method, Box<dyn Error>> {
 		content.len(),
 		content
 	);
+    drop(content);
 	stream.write(response.as_bytes())?;
 
     stream.flush()?;
@@ -90,6 +91,6 @@ fn handle_get(mut stream: &TcpStream) -> Result<Method, Box<dyn Error>> {
 
 fn handle_head(mut stream: &TcpStream) -> Result<Method, Box<dyn Error>> {
     let response = format!("HTTP/1.1 200 OK\r\nContent-Length: 0\r");
-    stream.write(response.as_bytes()).expect("Cant send HEAD response to client");
+    stream.write(response.as_bytes())?;
     Ok(Method::HEAD)
 }
